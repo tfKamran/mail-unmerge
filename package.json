@@ -1,0 +1,30 @@
+{
+  "name": "mail-unmerge",
+  "version": "1.0.0",
+  "description": "a tool to shoot out individual emails to a huge group with unique attachments configuration with a CSV",
+  "main": "index.js",
+  "bin": {
+    "mail-unmerge": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tfKamran/mail-unmerge.git"
+  },
+  "keywords": [
+    "mail",
+    "group",
+    "email",
+    "attachments"
+  ],
+  "author": "tfKamran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tfKamran/mail-unmerge/issues"
+  },
+  "homepage": "https://github.com/tfKamran/mail-unmerge#readme",
+  "dependencies": {
+    "csvtojson": "^1.1.6",
+    "fs": "0.0.1-security",
+    "nodemailer": "^4.0.1"
+  }
+}

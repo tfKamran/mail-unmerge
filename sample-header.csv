@@ -1,0 +1,3 @@
+email,subject,name,content,attachment1,attachment2
+john@doe.com,Some Email,John,Something,./attachments/something.pdf,./attachments/something2.pdf
+someone@something.com,Some Other Email,Someone,Something Else,./attachments/something-else.pdf,./attachments/something-else2.pdf
