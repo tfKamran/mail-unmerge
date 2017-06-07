@@ -5,7 +5,7 @@
 
 [![NPM](https://nodei.co/npm/mail-unmerge.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/mail-unmerge/)
 
-A tool to shoot out individual emails to a huge group with unique attachments configuration with a CSV
+A tool to shoot out individual emails to a huge group with unique attachments, configurable with a CSV
 
 ## How to install?
 
