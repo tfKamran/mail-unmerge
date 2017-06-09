@@ -11,23 +11,27 @@ A tool to shoot out individual emails to a huge group with unique attachments, c
 
 You need to have Node.js installed on your system before you can use this package. Get it here: [Node.js](https://nodejs.org/)
 
-Once you have Node.js and NPM setup, you can run:
+Once you have Node.js and NPM setup, the installation is as simple as running a command.
+
+### Linux/Mac
 
     sudo npm install -g mail-unmerge
 
-Or the following in your admin command prompt on Windows:
+### Windows
+
+Within a command prompt window with administrative privileges:
 
     npm install -g mail-unmerge
 
 ## How to use?
 
-### Make a CSV in the following format:
+### Create a CSV file in the following format:
 
 ![CSV Template](./CSVTemplate.png)
 
-The `email` and `subject` field compulsory, rest all are custom fields and can be replaced with one of your own. The `attachment` fields are obviously optional.
+The only two fields that are mandatory are `email` and `subject`, rest all are custom fields and can be replaced with one of your own. The `attachment` fields are obviously optional.
 
-### Compose your email template like:
+### Compose your email template
 
     Hi <name>,
 
@@ -42,4 +46,4 @@ You can even use HTML to format your content template.
 
     mail-unmerge ./header.csv ./content-template.txt
 
-It will send out individual emails to all the emails listed in the CSV.
+It will send out individual emails to all the email addresses listed in the CSV file, with personalized attachments.
