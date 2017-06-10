@@ -1,5 +1,0 @@
-{
-    "email_id": "myemail@someemail.com",
-    "sender_name": "HR Team",
-    "email_server": "smtp://myemail%40someemail.com:MyPassword@smtp.someemail.com"
-}
