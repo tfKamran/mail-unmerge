@@ -27,7 +27,9 @@ module.exports = function(to, subject, body, attachments) {
 
         attachments.forEach(item => {
             mailOptions.attachments.push({
-                'filename': item.substring(item.lastIndexOf("/") + 1),
+                'filename': (item.indexOf("/") > -1 ?
+                        item.substring(item.lastIndexOf("/") + 1)
+                        : item.substring(item.lastIndexOf("\\") + 1)),
                 'path': item
             });
         });
