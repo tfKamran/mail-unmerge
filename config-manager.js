@@ -14,7 +14,7 @@ module.exports = {
         checkAndAskFor("email_id", "What source email address would you like to use? ");
         checkAndAskFor("sender_name", "What name would you like to reflect in the email? ");
         checkAndAskFor("email_server", "What is your outgoing mail server address? ");
-        checkAndAskFor("password", "Password for your email address: ", {hideEchoBack: true});
+        checkAndAskFor("password", "Password for your email address (won't be saved): ", {hideEchoBack: true});
 
         function checkAndAskFor(key, caption, options) {
             if (!configs[key]) {
