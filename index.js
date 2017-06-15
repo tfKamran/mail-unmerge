@@ -27,7 +27,9 @@ const emailBodyTemplate = fs.readFileSync(contentTemplate, 'utf-8').split("\n").
 csv().fromFile(headerCSV)
     .on('json', processEmailItem)
     .on('done', (error) => {
-        console.log('Done!')
+        if (error) {
+            console.log("Error parsing CSV file");
+        }
     });
 
 function processEmailItem(item) {
