@@ -25,21 +25,23 @@ const contentTemplate = process.argv[3];
 const emailBodyTemplate = fs.readFileSync(contentTemplate, 'utf-8').split("\n").join("<br />");
 
 csv().fromFile(headerCSV)
-    .on('json', (item) => {
-        var emailBody = emailBodyTemplate;
-
-        var attachments = [];
-
-        Object.keys(item).forEach(key => {
-            emailBody = emailBody.split("<" + key + ">").join(item[key]);
-
-            if (key.startsWith("attachment")) {
-                attachments.push(item[key]);
-            }
-        });
-
-        email(item.email, item.subject, emailBody, attachments);
-    })
+    .on('json', processEmailItem)
     .on('done', (error) => {
         console.log('Done!')
     });
+
+function processEmailItem(item) {
+    var emailBody = emailBodyTemplate;
+
+    var attachments = [];
+
+    Object.keys(item).forEach(key => {
+        emailBody = emailBody.split("<" + key + ">").join(item[key]);
+
+        if (key.startsWith("attachment")) {
+            attachments.push(item[key]);
+        }
+    });
+
+    email(item.email, item.subject, emailBody, attachments);
+}
