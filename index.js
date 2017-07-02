@@ -54,7 +54,8 @@ csv().fromFile(headerCSV)
                     "to": item.email,
                     "subject": item.subject,
                     "body": emailBody,
-                    "attachments": attachments
+                    "attachments": attachments,
+                    "_header": item
                 });
             });
 
@@ -68,9 +69,44 @@ function emailCallback(successfulEmails, failedEmails) {
         console.log("All emails were sent successfully");
     } else {
         const failedEmailAddresses = failedEmails.map(email => email.to);
-
         console.log("Sending failed for: " + failedEmailAddresses);
+
+        failedEmails.forEach(email => addFailedRecordInCSV(email._header));
     }
 
     readline.question("Press enter to exit\n");
+}
+
+function getNextRetryCSVFileName() {
+    return headerCSV.substring(0, headerCSV.length - 4) + '-retry.csv';
+}
+
+function addFailedRecordInCSV(item) {
+    createFailedHeaderCSVFileIfNeeded(item);
+
+    var row = '';
+    Object.keys(item).forEach(key => {
+        row += item[key] + ',';
+    });
+
+    fs.appendFileSync(getNextRetryCSVFileName(),
+        '\n' + row.substring(0, row.length - 1),
+        'utf8');
+}
+
+function createFailedHeaderCSVFileIfNeeded(item) {
+    if (!fs.existsSync(getNextRetryCSVFileName())) {
+        createFailedHeaderCSVFile(item);
+    }
+}
+
+function createFailedHeaderCSVFile(item) {
+    var header = '';
+        Object.keys(item).forEach(key => {
+        header += key + ',';
+    });
+
+    fs.writeFileSync(getNextRetryCSVFileName(),
+        header.substring(0, header.length - 1),
+        'utf8');
 }
