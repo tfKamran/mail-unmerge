@@ -2,9 +2,7 @@ const nodemailer = require('nodemailer');
 const urlencode = require('urlencode');
 const configs = require('./config-manager').getConfiguration();
 
-module.exports = function(to, subject, body, attachments) {
-    console.log("Preparing to send email...");
-
+module.exports = function(to, subject, body, attachments, callback) {
     var transporter = nodemailer.createTransport(
         configs.email_server.substring(0, configs.email_server.indexOf("://") + 3)
         + urlencode(configs.email_id)
@@ -35,12 +33,5 @@ module.exports = function(to, subject, body, attachments) {
         });
     }
 
-    console.log("Emailing " + to);
-
-    transporter.sendMail(mailOptions, function(error, info) {
-        if(error) {
-            return console.log("Could not send email: " + error);
-        }
-        console.log('Email sent: ' + info.response);
-    });
+    transporter.sendMail(mailOptions, callback);
 }
