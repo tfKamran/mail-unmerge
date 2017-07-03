@@ -1,6 +1,6 @@
 {
   "name": "mail-unmerge",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "a tool to shoot out individual emails to a huge group with unique attachments, configurable with a CSV",
   "main": "index.js",
   "bin": {
