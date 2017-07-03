@@ -54,7 +54,9 @@ function intiateEmails(headerCSV, contentTemplate) {
                     });
 
                     batchEmail.push({
-                        "to": item.email,
+                        "to": item.to,
+                        "cc": item.cc,
+                        "bcc": item.bcc,
                         "subject": item.subject,
                         "body": emailBody,
                         "attachments": attachments,

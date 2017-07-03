@@ -2,7 +2,7 @@ const emailer = require('./emailer');
 
 module.exports = function(emails, callback) {
     emails.forEach(email => {
-        emailer(email.to, email.subject, email.body, email.attachments, (error, info) => {
+        emailer(email.to, email.cc, email.bcc, email.subject, email.body, email.attachments, (error, info) => {
             eachEmailCallback(error, info, email);
         });
     });

@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const urlencode = require('urlencode');
 const configs = require('./config-manager').getConfiguration();
 
-module.exports = function(to, subject, body, attachments, callback) {
+module.exports = function(to, cc,  bcc, subject, body, attachments, callback) {
     var transporter = nodemailer.createTransport(
         configs.email_server.substring(0, configs.email_server.indexOf("://") + 3)
         + urlencode(configs.email_id)
@@ -15,6 +15,8 @@ module.exports = function(to, subject, body, attachments, callback) {
     var mailOptions = {
         from: '"' + configs.sender_name + '" <' + configs.email_id + '>',
         to: to,
+        cc: cc,
+        bcc: bcc,
         subject: subject,
         text: body,
         html: body
