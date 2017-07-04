@@ -29,7 +29,7 @@ Within a command prompt window with administrative privileges:
 
 ![CSV Template](./CSVTemplate.png)
 
-The only two fields that are mandatory are `email` and `subject`, rest all are custom fields and can be replaced with one of your own. The `attachment` fields are obviously optional.
+The only two fields that are mandatory are `to` and `subject`. `cc` and `bcc` are optional, rest all are custom fields and can be replaced with one of your own. The `attachment` fields are obviously optional.
 
 ### Compose your email template
 
