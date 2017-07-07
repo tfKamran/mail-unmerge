@@ -3,7 +3,7 @@ module.exports = {
         const fs = require('fs');
         const readline = require('readline-sync');
 
-        const configFile = './configs.json';
+        const configFile = require('os').homedir() + '/.mail-unmerge-configs.json';
 
         if (!fs.existsSync(configFile)) {
             fs.writeFileSync(configFile, '{}', 'utf-8');
